@@ -10,15 +10,16 @@ function Header({ onAddVote }) {
   );
 
   return (
-    <div>
-      <h1>Class Monitor Vote</h1>
+    <header className="header">
+      <div>
+        <h1>Class Monitor Vote</h1>
+        <p>Total Votes: {totalVotes}</p>
+      </div>
 
-      <p>Total Votes {totalVotes}</p>
-
-      <button onClick={onAddVote}>
-        Add New Vote
+      <button className="add-vote-btn" onClick={onAddVote}>
+        + Add New Vote
       </button>
-    </div>
+    </header>
   );
 }
 

@@ -8,55 +8,62 @@ function VoteModal({ onClose }) {
   const [selectedMonitor, setSelectedMonitor] = useState("");
 
   const handleVote = () => {
-  if (!studentName.trim() || !selectedMonitor) {
-    alert("Please enter student name and select a monitor.");
-    return;
-  }
+    if (!studentName.trim() || !selectedMonitor) {
+      alert("Please enter student name and select a monitor.");
+      return;
+    }
 
-  addVote(studentName.trim(), Number(selectedMonitor));
+    addVote(studentName.trim(), Number(selectedMonitor));
 
-  setStudentName("");
-  setSelectedMonitor("");
+    setStudentName("");
+    setSelectedMonitor("");
 
-  onClose();
-};
+    onClose();
+  };
 
   return (
-    <div>
-      <h2>Add New Vote</h2>
+    <div className="modal-overlay">
+      <div className="modal">
+        <div className="modal-header">
+          <h2>Add New Vote</h2>
 
-      <label>
-        Student Name:
-        <input
-          type="text"
-          value={studentName}
-          onChange={(e) => setStudentName(e.target.value)}
-        />
-      </label>
+          <button onClick={onClose}>×</button>
+        </div>
 
-      <br />
+        <div className="form-group">
+          <label>Student Name</label>
 
-      <label>
-        Choose Monitor:
-        <select
-          value={selectedMonitor}
-          onChange={(e) => setSelectedMonitor(e.target.value)}
-        >
-          <option value="">Select Monitor</option>
+          <input
+            type="text"
+            value={studentName}
+            onChange={(e) => setStudentName(e.target.value)}
+            placeholder="Enter student name"
+          />
+        </div>
 
-          {monitors.map((monitor) => (
-            <option key={monitor.id} value={monitor.id}>
-              {monitor.name}
-            </option>
-          ))}
-        </select>
-      </label>
+        <div className="form-group">
+          <label>Choose Monitor</label>
 
-      <br />
+          <select
+            value={selectedMonitor}
+            onChange={(e) => setSelectedMonitor(e.target.value)}
+          >
+            <option value="">Select Monitor</option>
 
-      <button onClick={handleVote}>Vote</button>
+            {monitors.map((monitor) => (
+              <option key={monitor.id} value={monitor.id}>
+                {monitor.name}
+              </option>
+            ))}
+          </select>
+        </div>
 
-      <button onClick={onClose}>Close</button>
+        <div className="modal-actions">
+          <button onClick={handleVote}>Vote</button>
+
+          <button onClick={onClose}>Cancel</button>
+        </div>
+      </div>
     </div>
   );
 }

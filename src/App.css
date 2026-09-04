@@ -1,0 +1,255 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f6f8;
+  color: #1f2937;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* App */
+
+.app {
+  min-height: 100vh;
+  padding: 40px 20px;
+}
+
+.header {
+  max-width: 1000px;
+  margin: 0 auto 35px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.header h1 {
+  font-size: 32px;
+  margin-bottom: 8px;
+}
+
+.header p {
+  color: #6b7280;
+  font-size: 16px;
+}
+
+.add-vote-btn {
+  border: none;
+  border-radius: 8px;
+  padding: 12px 20px;
+  background: #2563eb;
+  color: white;
+  font-weight: 600;
+}
+
+.add-vote-btn:hover {
+  background: #1d4ed8;
+}
+
+/* Monitor section */
+
+.monitor-section {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.monitor-section > h2 {
+  margin-bottom: 20px;
+}
+
+/* Monitor grid */
+
+.monitor-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* Monitor card */
+
+.monitor-card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.monitor-card h3 {
+  font-size: 21px;
+  margin-bottom: 6px;
+}
+
+.monitor-card-header p {
+  color: #6b7280;
+  margin-bottom: 20px;
+}
+
+/* Voters */
+
+.voter-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.voter-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 10px 12px;
+  border-radius: 7px;
+  background: #f3f4f6;
+}
+
+.delete-btn {
+  border: none;
+  background: #ef4444;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 5px;
+  font-size: 13px;
+}
+
+.delete-btn:hover {
+  background: #dc2626;
+}
+
+.no-votes {
+  color: #9ca3af;
+  font-size: 14px;
+  font-style: italic;
+}
+
+/* Modal */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.5);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 20px;
+}
+
+.modal {
+  width: 100%;
+  max-width: 450px;
+
+  background: white;
+  border-radius: 12px;
+  padding: 25px;
+
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 25px;
+}
+
+.modal-header h2 {
+  font-size: 24px;
+}
+
+.modal-header button {
+  border: none;
+  background: transparent;
+  font-size: 28px;
+  color: #6b7280;
+}
+
+/* Form */
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  margin-bottom: 18px;
+}
+
+.form-group label {
+  font-weight: 600;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+
+  padding: 11px 12px;
+
+  border: 1px solid #d1d5db;
+  border-radius: 7px;
+
+  outline: none;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #2563eb;
+}
+
+/* Modal buttons */
+
+.modal-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 25px;
+}
+
+.modal-actions button {
+  flex: 1;
+  padding: 11px;
+
+  border: none;
+  border-radius: 7px;
+}
+
+.modal-actions button:first-child {
+  background: #2563eb;
+  color: white;
+}
+
+.modal-actions button:last-child {
+  background: #e5e7eb;
+  color: #374151;
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .monitor-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .add-vote-btn {
+    width: 100%;
+  }
+}

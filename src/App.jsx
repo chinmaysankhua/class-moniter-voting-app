@@ -2,15 +2,18 @@ import { useState } from "react";
 import Header from "./components/Header";
 import MonitorList from "./components/MonitorList";
 import VoteModal from "./components/VoteModal";
+import "./App.css";
 
 function App() {
   const [showModal, setShowModal] = useState(false);
 
   return (
-    <div>
+    <div className="app">
       <Header onAddVote={() => setShowModal(true)} />
 
-      <MonitorList />
+      <main>
+        <MonitorList />
+      </main>
 
       {showModal && (
         <VoteModal
