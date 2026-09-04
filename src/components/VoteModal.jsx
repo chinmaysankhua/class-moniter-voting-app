@@ -8,9 +8,18 @@ function VoteModal({ onClose }) {
   const [selectedMonitor, setSelectedMonitor] = useState("");
 
   const handleVote = () => {
-    addVote(studentName, Number(selectedMonitor));
-    onClose();
-  };
+  if (!studentName.trim() || !selectedMonitor) {
+    alert("Please enter student name and select a monitor.");
+    return;
+  }
+
+  addVote(studentName.trim(), Number(selectedMonitor));
+
+  setStudentName("");
+  setSelectedMonitor("");
+
+  onClose();
+};
 
   return (
     <div>
