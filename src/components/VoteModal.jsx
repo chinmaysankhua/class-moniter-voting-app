@@ -6,10 +6,11 @@ function VoteModal({ onClose }) {
 
   const [studentName, setStudentName] = useState("");
   const [selectedMonitor, setSelectedMonitor] = useState("");
+  const [error, setError] = useState("");
 
   const handleVote = () => {
     if (!studentName.trim() || !selectedMonitor) {
-      alert("Please enter student name and select a monitor.");
+      setError("Please enter student name and select a monitor.");
       return;
     }
 
@@ -17,6 +18,7 @@ function VoteModal({ onClose }) {
 
     setStudentName("");
     setSelectedMonitor("");
+    setError("");
 
     onClose();
   };
@@ -36,7 +38,10 @@ function VoteModal({ onClose }) {
           <input
             type="text"
             value={studentName}
-            onChange={(e) => setStudentName(e.target.value)}
+            onChange={(e) => {
+              setStudentName(e.target.value);
+              setError("");
+            }}
             placeholder="Enter student name"
           />
         </div>
@@ -46,7 +51,10 @@ function VoteModal({ onClose }) {
 
           <select
             value={selectedMonitor}
-            onChange={(e) => setSelectedMonitor(e.target.value)}
+            onChange={(e) => {
+              setSelectedMonitor(e.target.value);
+              setError("");
+            }}
           >
             <option value="">Select Monitor</option>
 
@@ -57,6 +65,8 @@ function VoteModal({ onClose }) {
             ))}
           </select>
         </div>
+
+        {error && <p className="error-message">{error}</p>}
 
         <div className="modal-actions">
           <button onClick={handleVote}>Vote</button>

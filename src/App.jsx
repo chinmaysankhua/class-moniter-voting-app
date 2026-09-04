@@ -1,8 +1,9 @@
 import { useState } from "react";
+import "./App.css";
 import Header from "./components/Header";
 import MonitorList from "./components/MonitorList";
 import VoteModal from "./components/VoteModal";
-import "./App.css";
+import ChatBot from "./components/ChatBot";
 
 function App() {
   const [showModal, setShowModal] = useState(false);
@@ -13,6 +14,8 @@ function App() {
 
       <main>
         <MonitorList />
+
+        <ChatBot />
       </main>
 
       {showModal && (
